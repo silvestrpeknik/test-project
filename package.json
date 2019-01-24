@@ -1,0 +1,25 @@
+{
+  "name": "academy-project",
+  "version": "1.0.0",
+  "description": "Test project",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "start": "nodemon --exec ts-node -- src/koaApp.ts"
+  },
+  "author": "Silvestr Peknik",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/koa": "^2.0.48",
+    "@types/koa-router": "^7.0.39",
+    "@types/node": "^10.12.18",
+    "nodemon": "^1.18.9",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "koa": "^2.6.2",
+    "koa-body": "^4.0.6",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0"
+  }
+}
