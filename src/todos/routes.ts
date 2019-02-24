@@ -3,12 +3,23 @@ import { Context } from 'koa';
 import { Todo } from './models';
 import 'koa-body';
 
-
 const routes = new Router({
     prefix: '/todos' // adds this prefix to all routes defined for this router
 });
 
 let todos: Array<Todo> = [];
+todos.push({
+  id: 0,
+  message: 'Example unfinished toad',
+  isDone: false,
+  color: 'green'
+});
+todos.push({
+  id: 1,
+  message: 'Example finished apple',
+  isDone: true,
+  color: 'red'
+});
 
 // 
 //  Define routes
@@ -24,6 +35,7 @@ routes.post('/', (ctx: Context) => { // context contains request, response and o
 routes.get('/', (ctx: Context) => {
     ctx.response.body = todos;
 })
+
 //   - get specific doto
 routes.get('/:id', (ctx: Context) => {
     const id = Number(ctx.params.id);
@@ -36,7 +48,7 @@ routes.get('/:id', (ctx: Context) => {
     if(!ctx.response.body) {
         ctx.response.status = 404;
     }
-})
+});
 //   - update todo
 routes.put('/:id', (ctx: Context) => {
         const id = Number(ctx.params.id);

@@ -1,5 +1,6 @@
 import logger from 'koa-logger';
 import Router from 'koa-router';
+import cors from 'koa-cors';
 import koaBody from 'koa-body';
 import Koa, { Context} from 'koa';
 import {port} from './config';
@@ -12,11 +13,9 @@ let greetings: Array<any> = []
 
 // app.use adds a middleware. Order in code defines order of the middlewares
 
+app.use(cors());
 app.use(logger()); // logs info about requests
 app.use(koaBody()); // tries to parse request body to json
-
-
-
 app.use(todoRoutes.routes())
 
 app.listen(port, () => {
